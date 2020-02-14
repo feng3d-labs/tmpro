@@ -32,7 +32,7 @@
         //
         "src/utils/VertexGradient.ts",
         //
-        "src/TextMeshProDistanceField.shader.ts",
+        "src/TMP_SDF.shader.ts",
         "src/TMP_ColorGradient.ts",
         "src/TMP_Asset.ts",
         "src/TMP_FontAsset.ts",

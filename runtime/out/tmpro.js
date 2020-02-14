@@ -171,86 +171,337 @@ var tmpro;
      */
     var TextMeshProDistanceFieldUniforms = /** @class */ (function () {
         function TextMeshProDistanceFieldUniforms() {
-            this._TintColor = new feng3d.Color4(0.5, 0.5, 0.5, 0.5);
-            // _FaceTex			("Face Texture", 2D) = "white" {}
-            // _FaceUVSpeedX		("Face UV Speed X", Range(-5, 5)) = 0.0
-            // _FaceUVSpeedY		("Face UV Speed Y", Range(-5, 5)) = 0.0
-            // _FaceColor			("Face Color", Color) = (1,1,1,1)
-            // _FaceDilate			("Face Dilate", Range(-1,1)) = 0
-            // _OutlineColor		("Outline Color", Color) = (0,0,0,1)
-            // _OutlineTex			("Outline Texture", 2D) = "white" {}
-            // _OutlineUVSpeedX	("Outline UV Speed X", Range(-5, 5)) = 0.0
-            // _OutlineUVSpeedY	("Outline UV Speed Y", Range(-5, 5)) = 0.0
-            // _OutlineWidth		("Outline Thickness", Range(0, 1)) = 0
-            // _OutlineSoftness	("Outline Softness", Range(0,1)) = 0
-            // _Bevel				("Bevel", Range(0,1)) = 0.5
-            // _BevelOffset		("Bevel Offset", Range(-0.5,0.5)) = 0
-            // _BevelWidth			("Bevel Width", Range(-.5,0.5)) = 0
-            // _BevelClamp			("Bevel Clamp", Range(0,1)) = 0
-            // _BevelRoundness		("Bevel Roundness", Range(0,1)) = 0
-            // _LightAngle			("Light Angle", Range(0.0, 6.2831853)) = 3.1416
-            // _SpecularColor		("Specular", Color) = (1,1,1,1)
-            // _SpecularPower		("Specular", Range(0,4)) = 2.0
-            // _Reflectivity		("Reflectivity", Range(5.0,15.0)) = 10
-            // _Diffuse			("Diffuse", Range(0,1)) = 0.5
-            // _Ambient			("Ambient", Range(1,0)) = 0.5
-            // _BumpMap 			("Normal map", 2D) = "bump" {}
-            // _BumpOutline		("Bump Outline", Range(0,1)) = 0
-            // _BumpFace			("Bump Face", Range(0,1)) = 0
-            // _ReflectFaceColor	("Reflection Color", Color) = (0,0,0,1)
-            // _ReflectOutlineColor("Reflection Color", Color) = (0,0,0,1)
-            // _Cube 				("Reflection Cubemap", Cube) = "black" { /* TexGen CubeReflect */ }
-            // _EnvMatrixRotation	("Texture Rotation", vector) = (0, 0, 0, 0)
-            // _UnderlayColor		("Border Color", Color) = (0,0,0, 0.5)
-            // _UnderlayOffsetX	("Border OffsetX", Range(-1,1)) = 0
-            // _UnderlayOffsetY	("Border OffsetY", Range(-1,1)) = 0
-            // _UnderlayDilate		("Border Dilate", Range(-1,1)) = 0
-            // _UnderlaySoftness	("Border Softness", Range(0,1)) = 0
-            // _GlowColor			("Color", Color) = (0, 1, 0, 0.5)
-            // _GlowOffset			("Offset", Range(-1,1)) = 0
-            // _GlowInner			("Inner", Range(0,1)) = 0.05
-            // _GlowOuter			("Outer", Range(0,1)) = 0.05
-            // _GlowPower			("Falloff", Range(1, 0)) = 0.75
-            // _WeightNormal		("Weight Normal", float) = 0
-            // _WeightBold			("Weight Bold", float) = 0.5
-            // _ShaderFlags		("Flags", float) = 0
-            // _ScaleRatioA		("Scale RatioA", float) = 1
-            // _ScaleRatioB		("Scale RatioB", float) = 1
-            // _ScaleRatioC		("Scale RatioC", float) = 1
-            // _MainTex			("Font Atlas", 2D) = "white" {}
-            // _TextureWidth		("Texture Width", float) = 512
-            // _TextureHeight		("Texture Height", float) = 512
-            // _GradientScale		("Gradient Scale", float) = 5.0
-            // _ScaleX				("Scale X", float) = 1.0
-            // _ScaleY				("Scale Y", float) = 1.0
-            // _PerspectiveFilter	("Perspective Correction", Range(0, 1)) = 0.875
-            // _Sharpness			("Sharpness", Range(-1,1)) = 0
-            // _VertexOffsetX		("Vertex OffsetX", float) = 0
-            // _VertexOffsetY		("Vertex OffsetY", float) = 0
-            // _MaskCoord			("Mask Coordinates", vector) = (0, 0, 32767, 32767)
-            // _ClipRect			("Clip Rect", vector) = (-32767, -32767, 32767, 32767)
-            // _MaskSoftnessX		("Mask SoftnessX", float) = 0
-            // _MaskSoftnessY		("Mask SoftnessY", float) = 0
-            // _StencilComp		("Stencil Comparison", Float) = 8
-            // _Stencil			("Stencil ID", Float) = 0
-            // _StencilOp			("Stencil Operation", Float) = 0
-            // _StencilWriteMask	("Stencil Write Mask", Float) = 255
-            // _StencilReadMask	("Stencil Read Mask", Float) = 255
-            // _ColorMask			("Color Mask", Float) = 15
+            this._FaceColor = new feng3d.Color4(1, 1, 1, 1);
+            this._FaceTex = feng3d.Texture2D.white;
+            this._FaceTex_ST = new feng3d.Vector4(1, 1, 0, 0);
+            this._FaceUVSpeedX = 0;
+            this._FaceUVSpeedY = 0;
+            this._OutlineSoftness = 0;
+            this._FaceDilate = 0;
+            this._OutlineColor = new feng3d.Color4(0, 0, 0, 1);
+            this._OutlineTex = feng3d.Texture2D.white;
+            this._OutlineTex_ST = new feng3d.Vector4(1, 1, 0, 0);
+            this._OutlineUVSpeedX = 0;
+            this._OutlineUVSpeedY = 0;
+            this._OutlineWidth = 0;
+            this._UnderlayColor = new feng3d.Vector4(0, 0, 0, 0.5);
+            this._UnderlayOffsetX = 0;
+            this._UnderlayOffsetY = 0;
+            this._UnderlayDilate = 0;
+            this._UnderlaySoftness = 0;
+            this._Bevel = 0.5;
+            this._BevelOffset = 0;
+            this._BevelWidth = 0;
+            this._BevelRoundness = 0;
+            this._BevelClamp = 0;
+            this._LightAngle = 3.1416;
+            this._SpecularColor = new feng3d.Vector4(0, 0, 0, 0.5);
+            this._SpecularPower = 2.0;
+            this._Reflectivity = 10.0;
+            this._Diffuse = 0.5;
+            this._Ambient = 0.5;
+            this._BumpMap = feng3d.Texture2D.defaultNormal;
+            this._BumpFace = 0;
+            this._BumpOutline = 0;
+            this._ReflectFaceColor = new feng3d.Vector4(0, 0, 0, 1);
+            this._ReflectOutlineColor = new feng3d.Vector4(0, 0, 0, 1);
+            this.s_skyboxTexture = feng3d.TextureCube.default;
+            this._EnvMatrixRotation = new feng3d.Vector4(0, 0, 0, 0);
+            this._GlowColor = new feng3d.Vector4(0, 1, 0, 0.5);
+            this._GlowOffset = 0;
+            this._GlowInner = 0.05;
+            this._GlowOuter = 0.05;
+            this._GlowPower = 0.75;
+            this._MainTex = feng3d.Texture2D.white;
+            this._GradientScale = 5.0;
+            this._TextureWidth = 512;
+            this._TextureHeight = 512;
+            this._ScaleX = 1.0;
+            this._ScaleY = 1.0;
+            this._Sharpness = 0;
+            this._PerspectiveFilter = 0.875;
+            this._VertexOffsetX = 0;
+            this._VertexOffsetY = 0;
+            this._MaskCoord = new feng3d.Vector4(0, 0, 32767, 32767);
+            this._MaskSoftnessX = 0;
+            this._MaskSoftnessY = 0;
+            this._ClipRect = new feng3d.Vector4(-32767, -32767, 32767, 32767);
+            this._StencilReadMask = 255;
+            this._WeightNormal = 0;
+            this._WeightBold = 0.5;
+            this._ShaderFlags = 0;
+            this._ScaleRatioA = 1;
+            this._ScaleRatioB = 1;
+            this._ScaleRatioC = 1;
+            this._Stencil = 0;
+            this._StencilComp = 0;
+            this._StencilOp = 0;
+            this._StencilWriteMask = 255;
         }
         __decorate([
             feng3d.serialize,
-            feng3d.oav()
-        ], TextMeshProDistanceFieldUniforms.prototype, "_TintColor", void 0);
+            feng3d.oav({ block: "Face" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_FaceColor", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Face" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_FaceTex", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Face" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_FaceTex_ST", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Face", componentParam: { step: 0.05, minValue: -5, maxValue: 5 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_FaceUVSpeedX", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Face", componentParam: { step: 0.05, minValue: -5, maxValue: 5 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_FaceUVSpeedY", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Face", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_OutlineSoftness", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Face", componentParam: { step: 0.05, minValue: -1, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_FaceDilate", void 0);
+        __decorate([
+            feng3d.oav({ block: "Outline" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_OutlineColor", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Outline" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_OutlineTex", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Outline" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_OutlineTex_ST", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Outline", componentParam: { step: 0.05, minValue: -5, maxValue: 5 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_OutlineUVSpeedX", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Outline", componentParam: { step: 0.05, minValue: -5, maxValue: 5 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_OutlineUVSpeedY", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Outline", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_OutlineWidth", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Underlay" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_UnderlayColor", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Underlay", componentParam: { step: 0.05, minValue: -1, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_UnderlayOffsetX", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Underlay", componentParam: { step: 0.05, minValue: -1, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_UnderlayOffsetY", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Underlay", componentParam: { step: 0.05, minValue: -1, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_UnderlayDilate", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Underlay", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_UnderlaySoftness", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Bevel", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_Bevel", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Bevel", componentParam: { step: 0.05, minValue: 0.5, maxValue: 0.5 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_BevelOffset", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Bevel", componentParam: { step: 0.05, minValue: -0.5, maxValue: 0.5 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_BevelWidth", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Bevel", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_BevelRoundness", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Bevel", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_BevelClamp", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Local Lighting", componentParam: { step: 0.05, minValue: 0, maxValue: 6.2831853 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_LightAngle", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Local Lighting" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_SpecularColor", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Local Lighting", componentParam: { step: 0.05, minValue: 0, maxValue: 4 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_SpecularPower", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Local Lighting", componentParam: { step: 0.05, minValue: 5, maxValue: 15 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_Reflectivity", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Local Lighting", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_Diffuse", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Local Lighting", componentParam: { step: 0.05, minValue: 1, maxValue: 0 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_Ambient", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Bump Map" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_BumpMap", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Bump Map", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_BumpFace", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Bump Map", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_BumpOutline", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Environment Map" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ReflectFaceColor", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Environment Map" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ReflectOutlineColor", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Environment Map", component: "OAVPick", componentParam: { accepttype: "texturecube", datatype: "texturecube" } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "s_skyboxTexture", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Lighting/Environment Map" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_EnvMatrixRotation", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Glow" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_GlowColor", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Glow", componentParam: { step: 0.05, minValue: -1, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_GlowOffset", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Glow", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_GlowInner", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Glow", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_GlowOuter", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Glow", componentParam: { step: 0.05, minValue: 1, maxValue: 0 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_GlowPower", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_MainTex", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_GradientScale", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_TextureWidth", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_TextureHeight", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ScaleX", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ScaleY", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings", componentParam: { step: 0.05, minValue: -1, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_Sharpness", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings", componentParam: { step: 0.05, minValue: 0, maxValue: 1 } })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_PerspectiveFilter", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_VertexOffsetX", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_VertexOffsetY", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_MaskCoord", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_MaskSoftnessX", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_MaskSoftnessY", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ClipRect", void 0);
+        __decorate([
+            feng3d.serialize
+        ], TextMeshProDistanceFieldUniforms.prototype, "_WeightNormal", void 0);
+        __decorate([
+            feng3d.serialize
+        ], TextMeshProDistanceFieldUniforms.prototype, "_WeightBold", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ShaderFlags", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ScaleRatioA", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ScaleRatioB", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_ScaleRatioC", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_Stencil", void 0);
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav({ block: "Debug Settings" })
+        ], TextMeshProDistanceFieldUniforms.prototype, "_StencilComp", void 0);
+        __decorate([
+            feng3d.serialize
+        ], TextMeshProDistanceFieldUniforms.prototype, "_StencilOp", void 0);
+        __decorate([
+            feng3d.serialize
+        ], TextMeshProDistanceFieldUniforms.prototype, "_StencilWriteMask", void 0);
         return TextMeshProDistanceFieldUniforms;
     }());
     tmpro.TextMeshProDistanceFieldUniforms = TextMeshProDistanceFieldUniforms;
     feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"].cls = TextMeshProDistanceFieldUniforms;
     feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"].renderParams = {
         enableBlend: true,
-        sfactor: feng3d.BlendFactor.SRC_ALPHA,
-        dfactor: feng3d.BlendFactor.ONE,
-        colorMask: feng3d.ColorMask.RGB,
+        sfactor: feng3d.BlendFactor.ONE,
+        dfactor: feng3d.BlendFactor.ONE_MINUS_SRC_ALPHA,
+        colorMask: feng3d.ColorMask.RGBA,
         cullFace: feng3d.CullFace.NONE,
         depthMask: false,
     };
