@@ -6,7 +6,7 @@ namespace tmpro
      */
     export class TextMeshProDistanceFieldUniforms
     {
-        __class__: "tmpro.ParticlesAdditiveUniforms";
+        __class__: "tmpro.TextMeshProDistanceFieldUniforms";
 
         @feng3d.serialize
         @feng3d.oav({ block: "Face" })
@@ -266,17 +266,21 @@ namespace tmpro
         _StencilWriteMask = 255
     }
 
-    feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"].cls = TextMeshProDistanceFieldUniforms;
-    feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"].renderParams = {
-        enableBlend: true,
-        sfactor: feng3d.BlendFactor.ONE,
-        dfactor: feng3d.BlendFactor.ONE_MINUS_SRC_ALPHA,
-        colorMask: feng3d.ColorMask.RGBA,
-        cullFace: feng3d.CullFace.NONE,
-        depthMask: false,
-    };
+    feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"] =
+    {
+        vertex: TMP_SDF_vertex,
+        fragment: TMP_SDF_fragment,
+        cls: TextMeshProDistanceFieldUniforms,
+        renderParams: {
+            enableBlend: true,
+            sfactor: feng3d.BlendFactor.ONE,
+            dfactor: feng3d.BlendFactor.ONE_MINUS_SRC_ALPHA,
+            colorMask: feng3d.ColorMask.RGBA,
+            cullFace: feng3d.CullFace.NONE,
+            depthMask: false,
+        },
+    }
     feng3d.Material.setDefault("TextMeshPro-Material", { shaderName: "TextMeshPro/Distance Field" });
-
 }
 
 namespace feng3d

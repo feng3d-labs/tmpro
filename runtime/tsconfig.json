@@ -32,7 +32,10 @@
         //
         "src/utils/VertexGradient.ts",
         //
-        "src/TMP_SDF.shader.ts",
+        "src/shaders/TMP_SDF.vertex.glsl.ts",
+        "src/shaders/TMP_SDF.fragment.glsl.ts",
+        "src/shaders/TMP_SDF.shader.ts",
+        //
         "src/TMP_ColorGradient.ts",
         "src/TMP_Asset.ts",
         "src/TMP_FontAsset.ts",

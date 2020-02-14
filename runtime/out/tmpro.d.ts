@@ -118,11 +118,17 @@ declare namespace tmpro {
     }
 }
 declare namespace tmpro {
+    var TMP_SDF_vertex: string;
+}
+declare namespace tmpro {
+    var TMP_SDF_fragment: string;
+}
+declare namespace tmpro {
     /**
      * UnityShader "TextMeshPro/Distance Field"
      */
     class TextMeshProDistanceFieldUniforms {
-        __class__: "tmpro.ParticlesAdditiveUniforms";
+        __class__: "tmpro.TextMeshProDistanceFieldUniforms";
         _FaceColor: feng3d.Color4;
         _FaceTex: feng3d.Texture2D;
         _FaceTex_ST: feng3d.Vector4;

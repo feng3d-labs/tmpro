@@ -22,7 +22,7 @@ namespace tmpro
          * The material to be assigned to this text object. An instance of the material will be assigned to the object's renderer.
          */
         @feng3d.oav({ block: "Main Settings", tooltip: "The material to be assigned to this text object. An instance of the material will be assigned to the object's renderer." })
-        fontMaterial: feng3d.Material;
+        fontMaterial = feng3d.Material.getDefault("TextMeshPro-Material");
 
         /**
          * Styles to apply to the text such as Bold or Italic.

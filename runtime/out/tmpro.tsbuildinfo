@@ -10,7 +10,9 @@
       "../src/enums/TextureMappingOptions.ts",
       "../src/enums/VertexSortingOrder.ts",
       "../src/utils/VertexGradient.ts",
-      "../src/TMP_SDF.shader.ts",
+      "../src/shaders/TMP_SDF.vertex.glsl.ts",
+      "../src/shaders/TMP_SDF.fragment.glsl.ts",
+      "../src/shaders/TMP_SDF.shader.ts",
       "../src/TMP_ColorGradient.ts",
       "../src/TMP_Asset.ts",
       "../src/TMP_FontAsset.ts",
@@ -34,7 +36,7 @@
         },
         {
           "pos": 1177,
-          "end": 36519,
+          "end": 37949,
           "kind": "text"
         }
       ],
@@ -49,7 +51,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 11511,
+          "end": 11646,
           "kind": "text"
         }
       ]

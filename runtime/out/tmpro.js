@@ -166,6 +166,14 @@ var tmpro;
 })(tmpro || (tmpro = {}));
 var tmpro;
 (function (tmpro) {
+    tmpro.TMP_SDF_vertex = "\n\nattribute vec2 a_position;\nattribute vec2 a_uv;\n\nuniform vec4 u_uvRect;\nuniform vec2 u_size;\nuniform mat4 u_modelMatrix;\nuniform mat4 u_viewProjection;\n\nvarying vec2 v_uv;\nvarying vec2 v_position;\n\nvoid main() \n{\n    vec2 position = a_position * u_size;\n    gl_Position = u_viewProjection * u_modelMatrix * vec4(position, 0.0, 1.0);\n    v_uv = u_uvRect.xy + a_uv * u_uvRect.zw;\n    v_position = position.xy;\n}\n    ";
+})(tmpro || (tmpro = {}));
+var tmpro;
+(function (tmpro) {
+    tmpro.TMP_SDF_fragment = "\nprecision mediump float;\n\nuniform sampler2D s_texture;\nvarying vec2 v_uv;\nvarying vec2 v_position;\n\nuniform vec4 u_color;\nuniform vec4 u_mask;\n\nvoid main() \n{\n    if(v_position.x < u_mask.x || v_position.x > u_mask.x + u_mask.z || v_position.y < u_mask.y || v_position.y > u_mask.y + u_mask.w)\n        discard;\n\n    vec4 color = texture2D(s_texture, v_uv);\n    gl_FragColor = color * u_color;\n}\n    ";
+})(tmpro || (tmpro = {}));
+var tmpro;
+(function (tmpro) {
     /**
      * UnityShader "TextMeshPro/Distance Field"
      */
@@ -496,15 +504,20 @@ var tmpro;
         return TextMeshProDistanceFieldUniforms;
     }());
     tmpro.TextMeshProDistanceFieldUniforms = TextMeshProDistanceFieldUniforms;
-    feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"].cls = TextMeshProDistanceFieldUniforms;
-    feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"].renderParams = {
-        enableBlend: true,
-        sfactor: feng3d.BlendFactor.ONE,
-        dfactor: feng3d.BlendFactor.ONE_MINUS_SRC_ALPHA,
-        colorMask: feng3d.ColorMask.RGBA,
-        cullFace: feng3d.CullFace.NONE,
-        depthMask: false,
-    };
+    feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"] =
+        {
+            vertex: tmpro.TMP_SDF_vertex,
+            fragment: tmpro.TMP_SDF_fragment,
+            cls: TextMeshProDistanceFieldUniforms,
+            renderParams: {
+                enableBlend: true,
+                sfactor: feng3d.BlendFactor.ONE,
+                dfactor: feng3d.BlendFactor.ONE_MINUS_SRC_ALPHA,
+                colorMask: feng3d.ColorMask.RGBA,
+                cullFace: feng3d.CullFace.NONE,
+                depthMask: false,
+            },
+        };
     feng3d.Material.setDefault("TextMeshPro-Material", { shaderName: "TextMeshPro/Distance Field" });
 })(tmpro || (tmpro = {}));
 var tmpro;
@@ -571,6 +584,10 @@ var tmpro;
              */
             _this.text = "New Text";
             _this.isRightToLeftText = false;
+            /**
+             * The material to be assigned to this text object. An instance of the material will be assigned to the object's renderer.
+             */
+            _this.fontMaterial = feng3d.Material.getDefault("TextMeshPro-Material");
             /**
              * Styles to apply to the text such as Bold or Italic.
              */
