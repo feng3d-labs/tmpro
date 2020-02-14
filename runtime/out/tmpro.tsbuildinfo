@@ -8,9 +8,12 @@
       "../src/enums/TextAlignmentOptions.ts",
       "../src/enums/TextOverflowModes.ts",
       "../src/enums/TextureMappingOptions.ts",
+      "../src/enums/VertexSortingOrder.ts",
       "../src/utils/VertexGradient.ts",
       "../src/TMP_ColorGradient.ts",
+      "../src/TMP_Asset.ts",
       "../src/TMP_FontAsset.ts",
+      "../src/TMP_SpriteAsset.ts",
       "../src/TMP_Text.ts",
       "../src/TextMeshProUGUI.ts"
     ],
@@ -30,7 +33,7 @@
         },
         {
           "pos": 1177,
-          "end": 16653,
+          "end": 18993,
           "kind": "text"
         }
       ],
@@ -45,7 +48,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 6704,
+          "end": 8858,
           "kind": "text"
         }
       ]

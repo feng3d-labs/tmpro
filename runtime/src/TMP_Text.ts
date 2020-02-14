@@ -133,5 +133,53 @@ namespace tmpro
          * Vertical UV mapping when using a shader with a texture face option.
          */
         verticalMapping = TextureMappingOptions.Character;
+
+        /**
+         * The space between the text and the edge of its container.
+         */
+        margin = new feng3d.Vector4(0, 0, 0, 0);
+
+        /**
+         * The order in which text geometry is sorted. Used to adjust the way overlapping characters are displayed.
+         */
+        geometrySortingOrder: VertexSortingOrder;
+
+        /**
+         * Used to enable or disable Rich Text.
+         */
+        isRichText = true;
+
+        /**
+         * Whether the text blocks raycasts from the Graphic Raycaster.
+         */
+        raycastTarget = true;
+
+        /**
+         * Whether to display strings such as \"\\n\" as is or replace them by the character they represent.
+         */
+        parseCtrlCharacters = true;
+
+        /**
+         * Compute descender values from visible characters only. Used to adjust layout behavior when hiding and revealing characters dynamically.
+         */
+        useMaxVisibleDescender = true;
+
+        /**
+         * The Sprite Asset used when NOT specifically referencing one using <sprite=\"Sprite Asset Name\">.
+         */
+        spriteAsset: TMP_SpriteAsset;
+
+        /**
+         * Enables character specific spacing between pairs of characters.
+         */
+        enableKerning = true;
+
+        /**
+         * Adds some padding between the characters and the edge of the text mesh. Can reduce graphical errors when displaying small text.
+         */
+        enableExtraPadding = false;
+
     }
+
+
 }

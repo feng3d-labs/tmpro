@@ -102,6 +102,12 @@ declare namespace tmpro {
     }
 }
 declare namespace tmpro {
+    enum VertexSortingOrder {
+        Normal = 0,
+        Reverse = 1
+    }
+}
+declare namespace tmpro {
     class VertexGradient {
         topLeft: feng3d.Color4;
         topRight: feng3d.Color4;
@@ -127,7 +133,30 @@ declare namespace tmpro {
     }
 }
 declare namespace tmpro {
+    /**
+     * Base class inherited by the various TextMeshPro Assets.
+     */
+    class TMP_Asset {
+        /**
+         * HashCode based on the name of the asset.
+         */
+        hashCode: number;
+        /**
+         * The material used by this asset.
+         */
+        material: feng3d.Material;
+        /**
+         * HashCode based on the name of the material assigned to this asset.
+         */
+        materialHashCode: number;
+    }
+}
+declare namespace tmpro {
     class TMP_FontAsset {
+    }
+}
+declare namespace tmpro {
+    class TMP_SpriteAsset extends TMP_Asset {
     }
 }
 declare namespace tmpro {
@@ -229,6 +258,42 @@ declare namespace tmpro {
          * Vertical UV mapping when using a shader with a texture face option.
          */
         verticalMapping: TextureMappingOptions;
+        /**
+         * The space between the text and the edge of its container.
+         */
+        margin: feng3d.Vector4;
+        /**
+         * The order in which text geometry is sorted. Used to adjust the way overlapping characters are displayed.
+         */
+        geometrySortingOrder: VertexSortingOrder;
+        /**
+         * Used to enable or disable Rich Text.
+         */
+        isRichText: boolean;
+        /**
+         * Whether the text blocks raycasts from the Graphic Raycaster.
+         */
+        raycastTarget: boolean;
+        /**
+         * Whether to display strings such as \"\\n\" as is or replace them by the character they represent.
+         */
+        parseCtrlCharacters: boolean;
+        /**
+         * Compute descender values from visible characters only. Used to adjust layout behavior when hiding and revealing characters dynamically.
+         */
+        useMaxVisibleDescender: boolean;
+        /**
+         * The Sprite Asset used when NOT specifically referencing one using <sprite=\"Sprite Asset Name\">.
+         */
+        spriteAsset: TMP_SpriteAsset;
+        /**
+         * Enables character specific spacing between pairs of characters.
+         */
+        enableKerning: boolean;
+        /**
+         * Adds some padding between the characters and the edge of the text mesh. Can reduce graphical errors when displaying small text.
+         */
+        enableExtraPadding: boolean;
     }
 }
 declare namespace tmpro {

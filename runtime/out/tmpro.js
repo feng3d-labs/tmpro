@@ -138,6 +138,15 @@ var tmpro;
 })(tmpro || (tmpro = {}));
 var tmpro;
 (function (tmpro) {
+    var VertexSortingOrder;
+    (function (VertexSortingOrder) {
+        VertexSortingOrder[VertexSortingOrder["Normal"] = 0] = "Normal";
+        VertexSortingOrder[VertexSortingOrder["Reverse"] = 1] = "Reverse";
+    })(VertexSortingOrder = tmpro.VertexSortingOrder || (tmpro.VertexSortingOrder = {}));
+    ;
+})(tmpro || (tmpro = {}));
+var tmpro;
+(function (tmpro) {
     var VertexGradient = /** @class */ (function () {
         function VertexGradient(color) {
             this.topLeft = color;
@@ -178,12 +187,35 @@ var tmpro;
 })(tmpro || (tmpro = {}));
 var tmpro;
 (function (tmpro) {
+    /**
+     * Base class inherited by the various TextMeshPro Assets.
+     */
+    var TMP_Asset = /** @class */ (function () {
+        function TMP_Asset() {
+        }
+        return TMP_Asset;
+    }());
+    tmpro.TMP_Asset = TMP_Asset;
+})(tmpro || (tmpro = {}));
+var tmpro;
+(function (tmpro) {
     var TMP_FontAsset = /** @class */ (function () {
         function TMP_FontAsset() {
         }
         return TMP_FontAsset;
     }());
     tmpro.TMP_FontAsset = TMP_FontAsset;
+})(tmpro || (tmpro = {}));
+var tmpro;
+(function (tmpro) {
+    var TMP_SpriteAsset = /** @class */ (function (_super) {
+        __extends(TMP_SpriteAsset, _super);
+        function TMP_SpriteAsset() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return TMP_SpriteAsset;
+    }(tmpro.TMP_Asset));
+    tmpro.TMP_SpriteAsset = TMP_SpriteAsset;
 })(tmpro || (tmpro = {}));
 var tmpro;
 (function (tmpro) {
@@ -281,6 +313,34 @@ var tmpro;
              * Vertical UV mapping when using a shader with a texture face option.
              */
             _this.verticalMapping = tmpro.TextureMappingOptions.Character;
+            /**
+             * The space between the text and the edge of its container.
+             */
+            _this.margin = new feng3d.Vector4(0, 0, 0, 0);
+            /**
+             * Used to enable or disable Rich Text.
+             */
+            _this.isRichText = true;
+            /**
+             * Whether the text blocks raycasts from the Graphic Raycaster.
+             */
+            _this.raycastTarget = true;
+            /**
+             * Whether to display strings such as \"\\n\" as is or replace them by the character they represent.
+             */
+            _this.parseCtrlCharacters = true;
+            /**
+             * Compute descender values from visible characters only. Used to adjust layout behavior when hiding and revealing characters dynamically.
+             */
+            _this.useMaxVisibleDescender = true;
+            /**
+             * Enables character specific spacing between pairs of characters.
+             */
+            _this.enableKerning = true;
+            /**
+             * Adds some padding between the characters and the edge of the text mesh. Can reduce graphical errors when displaying small text.
+             */
+            _this.enableExtraPadding = false;
             return _this;
         }
         __decorate([
