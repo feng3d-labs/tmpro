@@ -22,8 +22,8 @@
     ],
     "files": [
         //
+        "src/TMP_FontAsset.ts",
         "src/TMP_Text.ts",
         "src/TextMeshProUGUI.ts",
-        "src/TextMeshPro.ts",
     ]
 }

@@ -1,4 +1,4 @@
-namespace TMPro
+namespace tmpro
 {
     feng3d.classUtils.addClassNameSpace("TMPro");
 
@@ -7,7 +7,7 @@ namespace TMPro
     // [2]:Text (TMP) (TMPro.TextMeshProUGUI)
 
     @feng3d.AddComponentMenu("UI/TextMeshPro - Text (UI)")
-    export class TextMeshProUGUI extends feng3d.Component
+    export class TextMeshProUGUI extends TMP_Text
     {
 
     }
