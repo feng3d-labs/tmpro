@@ -1,6 +1,6 @@
 namespace tmpro
 {
-    feng3d.classUtils.addClassNameSpace("TMPro");
+    feng3d.classUtils.addClassNameSpace("tmpro");
 
     // [0]:Text (TMP) (UnityEngine.RectTransform)
     // [1]:Text (TMP) (UnityEngine.CanvasRenderer)

@@ -730,7 +730,7 @@ var tmpro;
 })(tmpro || (tmpro = {}));
 var tmpro;
 (function (tmpro) {
-    feng3d.classUtils.addClassNameSpace("TMPro");
+    feng3d.classUtils.addClassNameSpace("tmpro");
     // [0]:Text (TMP) (UnityEngine.RectTransform)
     // [1]:Text (TMP) (UnityEngine.CanvasRenderer)
     // [2]:Text (TMP) (TMPro.TextMeshProUGUI)
