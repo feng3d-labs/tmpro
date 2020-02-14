@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "declarationMap": true,
+        "declaration": true,
+        "composite": true,
+        // "strict": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "ES2015",
+            "dom"
+        ],
+        "outFile": "out/tmpro.js"
+        // "outDir": "debug"
+    },
+    "references": [
+        {
+            "path": "../../feng3d",
+        },
+    ],
+    "files": [
+        //
+        "src/TMP_Text.ts",
+        "src/TextMeshProUGUI.ts",
+        "src/TextMeshPro.ts",
+    ]
+}
