@@ -2,6 +2,12 @@
   "bundle": {
     "commonSourceDirectory": "..",
     "sourceFiles": [
+      "../src/enums/HorizontalAlignmentOptions.ts",
+      "../src/enums/VerticalAlignmentOptions.ts",
+      "../src/enums/FontStyles.ts",
+      "../src/enums/TextAlignmentOptions.ts",
+      "../src/enums/TextOverflowModes.ts",
+      "../src/enums/TextureMappingOptions.ts",
       "../src/utils/VertexGradient.ts",
       "../src/TMP_ColorGradient.ts",
       "../src/TMP_FontAsset.ts",
@@ -24,7 +30,7 @@
         },
         {
           "pos": 1177,
-          "end": 8158,
+          "end": 16653,
           "kind": "text"
         }
       ],
@@ -39,7 +45,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 3106,
+          "end": 6704,
           "kind": "text"
         }
       ]

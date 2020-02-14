@@ -1,4 +1,107 @@
 declare namespace tmpro {
+    /**
+     * Internal horizontal text alignment options.
+     */
+    enum HorizontalAlignmentOptions {
+        Left = 1,
+        Center = 2,
+        Right = 4,
+        Justified = 8,
+        Flush = 16,
+        Geometry = 32
+    }
+}
+declare namespace tmpro {
+    /**
+     * Internal vertical text alignment options.
+     */
+    enum VerticalAlignmentOptions {
+        Top = 256,
+        Middle = 512,
+        Bottom = 1024,
+        Baseline = 2048,
+        Geometry = 4096,
+        Capline = 8192
+    }
+}
+declare namespace tmpro {
+    /**
+     * Styles to apply to the text such as Bold or Italic.
+     */
+    enum FontStyles {
+        Normal = 0,
+        Bold = 1,
+        Italic = 2,
+        Underline = 4,
+        LowerCase = 8,
+        UpperCase = 16,
+        SmallCaps = 32,
+        Strikethrough = 64,
+        Superscript = 128,
+        Subscript = 256,
+        Highlight = 512
+    }
+}
+declare namespace tmpro {
+    enum TextAlignmentOptions {
+        TopLeft = 257,
+        Top = 258,
+        TopRight = 260,
+        TopJustified = 264,
+        TopFlush = 272,
+        TopGeoAligned = 288,
+        Left = 513,
+        Center = 514,
+        Right = 516,
+        Justified = 520,
+        Flush = 528,
+        CenterGeoAligned = 544,
+        BottomLeft = 1025,
+        Bottom = 1026,
+        BottomRight = 1028,
+        BottomJustified = 1032,
+        BottomFlush = 1040,
+        BottomGeoAligned = 1056,
+        BaselineLeft = 2049,
+        Baseline = 2050,
+        BaselineRight = 2052,
+        BaselineJustified = 2056,
+        BaselineFlush = 2064,
+        BaselineGeoAligned = 2080,
+        MidlineLeft = 4097,
+        Midline = 4098,
+        MidlineRight = 4100,
+        MidlineJustified = 4104,
+        MidlineFlush = 4112,
+        MidlineGeoAligned = 4128,
+        CaplineLeft = 8193,
+        Capline = 8194,
+        CaplineRight = 8196,
+        CaplineJustified = 8200,
+        CaplineFlush = 8208,
+        CaplineGeoAligned = 8224
+    }
+}
+declare namespace tmpro {
+    enum TextOverflowModes {
+        Overflow = 0,
+        Ellipsis = 1,
+        Masking = 2,
+        Truncate = 3,
+        ScrollRect = 4,
+        Page = 5,
+        Linked = 6
+    }
+}
+declare namespace tmpro {
+    enum TextureMappingOptions {
+        Character = 0,
+        Line = 1,
+        Paragraph = 2,
+        MatchAspect = 3
+    }
+}
+declare namespace tmpro {
     class VertexGradient {
         topLeft: feng3d.Color4;
         topRight: feng3d.Color4;
@@ -28,22 +131,6 @@ declare namespace tmpro {
     }
 }
 declare namespace tmpro {
-    /**
-     * Styles to apply to the text such as Bold or Italic.
-     */
-    enum FontStyles {
-        Normal = 0,
-        Bold = 1,
-        Italic = 2,
-        Underline = 4,
-        LowerCase = 8,
-        UpperCase = 16,
-        SmallCaps = 32,
-        Strikethrough = 64,
-        Superscript = 128,
-        Subscript = 256,
-        Highlight = 512
-    }
     abstract class TMP_Text extends feng3d.Component {
         /**
          * A string containing the text to be displayed.
@@ -95,10 +182,53 @@ declare namespace tmpro {
          */
         enableColorGradient: boolean;
         /**
-         *
+         * A Color Preset which override the local color settings.
+         */
+        colorGradientPreset: TMP_ColorGradient;
+        /**
+         * The gradient color applied over the Vertex Color. Can be locally set or driven by a Gradient Asset.
          */
         colorGradient: VertexGradient;
-        colorGradientPreset: TMP_ColorGradient;
+        /**
+         * Whether the color settings override the <color> tag.
+         */
+        overrideColorTags: boolean;
+        /**
+         * Spacing adjustments between different character of the text.
+         */
+        characterSpacing: number;
+        /**
+         * Spacing adjustments between different word of the text.
+         */
+        wordSpacing: number;
+        /**
+         * Spacing adjustments between different line of the text.
+         */
+        lineSpacing: number;
+        /**
+         * Spacing adjustments between different paragraph of the text.
+         */
+        paragraphSpacing: number;
+        /**
+         * Horizontal and vertical aligment of the text within its container.
+         */
+        textAlignment: TextAlignmentOptions;
+        /**
+         *
+         */
+        enableWordWrapping: boolean;
+        /**
+         * CHow to display text which goes past the edge of the container.
+         */
+        overflowMode: TextOverflowModes;
+        /**
+         * Horizontal UV mapping when using a shader with a texture face option.
+         */
+        horizontalMapping: TextureMappingOptions;
+        /**
+         * Vertical UV mapping when using a shader with a texture face option.
+         */
+        verticalMapping: TextureMappingOptions;
     }
 }
 declare namespace tmpro {

@@ -1,24 +1,6 @@
 namespace tmpro
 {
 
-    /**
-     * Styles to apply to the text such as Bold or Italic.
-     */
-    export enum FontStyles
-    {
-        Normal = 0x0,
-        Bold = 0x1,
-        Italic = 0x2,
-        Underline = 0x4,
-        LowerCase = 0x8,
-        UpperCase = 0x10,
-        SmallCaps = 0x20,
-        Strikethrough = 0x40,
-        Superscript = 0x80,
-        Subscript = 0x100,
-        Highlight = 0x200
-    };
-
     export abstract class TMP_Text extends feng3d.Component
     {
         /**
@@ -93,10 +75,63 @@ namespace tmpro
         enableColorGradient = false;
 
         /**
-         * 
+         * A Color Preset which override the local color settings.
+         */
+        colorGradientPreset = new TMP_ColorGradient();
+
+        /**
+         * The gradient color applied over the Vertex Color. Can be locally set or driven by a Gradient Asset.
          */
         colorGradient = new VertexGradient(new feng3d.Color4(1, 1, 1, 1));
 
-        colorGradientPreset: TMP_ColorGradient
+        /**
+         * Whether the color settings override the <color> tag.
+         */
+        overrideColorTags = false;
+
+        /**
+         * Spacing adjustments between different character of the text.
+         */
+        characterSpacing = 0;
+
+        /**
+         * Spacing adjustments between different word of the text.
+         */
+        wordSpacing = 0;
+
+        /**
+         * Spacing adjustments between different line of the text.
+         */
+        lineSpacing = 0;
+
+        /**
+         * Spacing adjustments between different paragraph of the text.
+         */
+        paragraphSpacing = 0;
+
+        /**
+         * Horizontal and vertical aligment of the text within its container.
+         */
+        textAlignment = TextAlignmentOptions.TopLeft;
+
+        /**
+         * 
+         */
+        enableWordWrapping = false;
+
+        /**
+         * CHow to display text which goes past the edge of the container.
+         */
+        overflowMode = TextOverflowModes.Overflow;
+
+        /**
+         * Horizontal UV mapping when using a shader with a texture face option.
+         */
+        horizontalMapping = TextureMappingOptions.Character;
+
+        /**
+         * Vertical UV mapping when using a shader with a texture face option.
+         */
+        verticalMapping = TextureMappingOptions.Character;
     }
 }
