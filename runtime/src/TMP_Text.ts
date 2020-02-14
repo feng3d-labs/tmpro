@@ -95,8 +95,8 @@ namespace tmpro
         /**
          * 
          */
-        // colorGradient = new VertexGradient(new feng3d.Color4(1, 1, 1, 1));
+        colorGradient = new VertexGradient(new feng3d.Color4(1, 1, 1, 1));
 
-        // colorGradientPreset: TMP_ColorGradient
+        colorGradientPreset: TMP_ColorGradient
     }
 }

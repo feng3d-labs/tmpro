@@ -19,6 +19,46 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var tmpro;
 (function (tmpro) {
+    var VertexGradient = /** @class */ (function () {
+        function VertexGradient(color) {
+            this.topLeft = color;
+            this.topRight = color;
+            this.bottomLeft = color;
+            this.bottomRight = color;
+        }
+        VertexGradient.prototype.VertexGradient = function (color0, color1, color2, color3) {
+            this.topLeft = color0;
+            this.topRight = color1;
+            this.bottomLeft = color2;
+            this.bottomRight = color3;
+        };
+        return VertexGradient;
+    }());
+    tmpro.VertexGradient = VertexGradient;
+})(tmpro || (tmpro = {}));
+var tmpro;
+(function (tmpro) {
+    var ColorMode;
+    (function (ColorMode) {
+        ColorMode[ColorMode["Single"] = 0] = "Single";
+        ColorMode[ColorMode["HorizontalGradient"] = 1] = "HorizontalGradient";
+        ColorMode[ColorMode["VerticalGradient"] = 2] = "VerticalGradient";
+        ColorMode[ColorMode["FourCornersGradient"] = 3] = "FourCornersGradient";
+    })(ColorMode = tmpro.ColorMode || (tmpro.ColorMode = {}));
+    var TMP_ColorGradient = /** @class */ (function () {
+        function TMP_ColorGradient() {
+            this.colorMode = ColorMode.FourCornersGradient;
+            this.topLeft = new feng3d.Color4(1, 1, 1, 1);
+            this.topRight = new feng3d.Color4(1, 1, 1, 1);
+            this.bottomLeft = new feng3d.Color4(1, 1, 1, 1);
+            this.bottomRight = new feng3d.Color4(1, 1, 1, 1);
+        }
+        return TMP_ColorGradient;
+    }());
+    tmpro.TMP_ColorGradient = TMP_ColorGradient;
+})(tmpro || (tmpro = {}));
+var tmpro;
+(function (tmpro) {
     var TMP_FontAsset = /** @class */ (function () {
         function TMP_FontAsset() {
         }
@@ -92,12 +132,11 @@ var tmpro;
              * The gradient color applied over the Vertex Color. Can be locally set or driven by a Gradient Asset.
              */
             _this.enableColorGradient = false;
-            return _this;
             /**
              *
              */
-            // colorGradient = new VertexGradient(new feng3d.Color4(1, 1, 1, 1));
-            // colorGradientPreset: TMP_ColorGradient
+            _this.colorGradient = new tmpro.VertexGradient(new feng3d.Color4(1, 1, 1, 1));
+            return _this;
         }
         __decorate([
             feng3d.oav({ tooltip: "A string containing the text to be displayed." })

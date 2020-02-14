@@ -22,6 +22,9 @@
     ],
     "files": [
         //
+        "src/utils/VertexGradient.ts",
+        //
+        "src/TMP_ColorGradient.ts",
         "src/TMP_FontAsset.ts",
         "src/TMP_Text.ts",
         "src/TextMeshProUGUI.ts",

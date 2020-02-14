@@ -1,4 +1,29 @@
 declare namespace tmpro {
+    class VertexGradient {
+        topLeft: feng3d.Color4;
+        topRight: feng3d.Color4;
+        bottomLeft: feng3d.Color4;
+        bottomRight: feng3d.Color4;
+        constructor(color: feng3d.Color4);
+        VertexGradient(color0: feng3d.Color4, color1: feng3d.Color4, color2: feng3d.Color4, color3: feng3d.Color4): void;
+    }
+}
+declare namespace tmpro {
+    enum ColorMode {
+        Single = 0,
+        HorizontalGradient = 1,
+        VerticalGradient = 2,
+        FourCornersGradient = 3
+    }
+    class TMP_ColorGradient {
+        colorMode: ColorMode;
+        topLeft: feng3d.Color4;
+        topRight: feng3d.Color4;
+        bottomLeft: feng3d.Color4;
+        bottomRight: feng3d.Color4;
+    }
+}
+declare namespace tmpro {
     class TMP_FontAsset {
     }
 }
@@ -69,6 +94,11 @@ declare namespace tmpro {
          * The gradient color applied over the Vertex Color. Can be locally set or driven by a Gradient Asset.
          */
         enableColorGradient: boolean;
+        /**
+         *
+         */
+        colorGradient: VertexGradient;
+        colorGradientPreset: TMP_ColorGradient;
     }
 }
 declare namespace tmpro {
