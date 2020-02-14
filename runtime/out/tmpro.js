@@ -1,3 +1,9 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -11,12 +17,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 var tmpro;
 (function (tmpro) {
     /**
@@ -163,6 +163,98 @@ var tmpro;
         return VertexGradient;
     }());
     tmpro.VertexGradient = VertexGradient;
+})(tmpro || (tmpro = {}));
+var tmpro;
+(function (tmpro) {
+    /**
+     * UnityShader "TextMeshPro/Distance Field"
+     */
+    var TextMeshProDistanceFieldUniforms = /** @class */ (function () {
+        function TextMeshProDistanceFieldUniforms() {
+            this._TintColor = new feng3d.Color4(0.5, 0.5, 0.5, 0.5);
+            // _FaceTex			("Face Texture", 2D) = "white" {}
+            // _FaceUVSpeedX		("Face UV Speed X", Range(-5, 5)) = 0.0
+            // _FaceUVSpeedY		("Face UV Speed Y", Range(-5, 5)) = 0.0
+            // _FaceColor			("Face Color", Color) = (1,1,1,1)
+            // _FaceDilate			("Face Dilate", Range(-1,1)) = 0
+            // _OutlineColor		("Outline Color", Color) = (0,0,0,1)
+            // _OutlineTex			("Outline Texture", 2D) = "white" {}
+            // _OutlineUVSpeedX	("Outline UV Speed X", Range(-5, 5)) = 0.0
+            // _OutlineUVSpeedY	("Outline UV Speed Y", Range(-5, 5)) = 0.0
+            // _OutlineWidth		("Outline Thickness", Range(0, 1)) = 0
+            // _OutlineSoftness	("Outline Softness", Range(0,1)) = 0
+            // _Bevel				("Bevel", Range(0,1)) = 0.5
+            // _BevelOffset		("Bevel Offset", Range(-0.5,0.5)) = 0
+            // _BevelWidth			("Bevel Width", Range(-.5,0.5)) = 0
+            // _BevelClamp			("Bevel Clamp", Range(0,1)) = 0
+            // _BevelRoundness		("Bevel Roundness", Range(0,1)) = 0
+            // _LightAngle			("Light Angle", Range(0.0, 6.2831853)) = 3.1416
+            // _SpecularColor		("Specular", Color) = (1,1,1,1)
+            // _SpecularPower		("Specular", Range(0,4)) = 2.0
+            // _Reflectivity		("Reflectivity", Range(5.0,15.0)) = 10
+            // _Diffuse			("Diffuse", Range(0,1)) = 0.5
+            // _Ambient			("Ambient", Range(1,0)) = 0.5
+            // _BumpMap 			("Normal map", 2D) = "bump" {}
+            // _BumpOutline		("Bump Outline", Range(0,1)) = 0
+            // _BumpFace			("Bump Face", Range(0,1)) = 0
+            // _ReflectFaceColor	("Reflection Color", Color) = (0,0,0,1)
+            // _ReflectOutlineColor("Reflection Color", Color) = (0,0,0,1)
+            // _Cube 				("Reflection Cubemap", Cube) = "black" { /* TexGen CubeReflect */ }
+            // _EnvMatrixRotation	("Texture Rotation", vector) = (0, 0, 0, 0)
+            // _UnderlayColor		("Border Color", Color) = (0,0,0, 0.5)
+            // _UnderlayOffsetX	("Border OffsetX", Range(-1,1)) = 0
+            // _UnderlayOffsetY	("Border OffsetY", Range(-1,1)) = 0
+            // _UnderlayDilate		("Border Dilate", Range(-1,1)) = 0
+            // _UnderlaySoftness	("Border Softness", Range(0,1)) = 0
+            // _GlowColor			("Color", Color) = (0, 1, 0, 0.5)
+            // _GlowOffset			("Offset", Range(-1,1)) = 0
+            // _GlowInner			("Inner", Range(0,1)) = 0.05
+            // _GlowOuter			("Outer", Range(0,1)) = 0.05
+            // _GlowPower			("Falloff", Range(1, 0)) = 0.75
+            // _WeightNormal		("Weight Normal", float) = 0
+            // _WeightBold			("Weight Bold", float) = 0.5
+            // _ShaderFlags		("Flags", float) = 0
+            // _ScaleRatioA		("Scale RatioA", float) = 1
+            // _ScaleRatioB		("Scale RatioB", float) = 1
+            // _ScaleRatioC		("Scale RatioC", float) = 1
+            // _MainTex			("Font Atlas", 2D) = "white" {}
+            // _TextureWidth		("Texture Width", float) = 512
+            // _TextureHeight		("Texture Height", float) = 512
+            // _GradientScale		("Gradient Scale", float) = 5.0
+            // _ScaleX				("Scale X", float) = 1.0
+            // _ScaleY				("Scale Y", float) = 1.0
+            // _PerspectiveFilter	("Perspective Correction", Range(0, 1)) = 0.875
+            // _Sharpness			("Sharpness", Range(-1,1)) = 0
+            // _VertexOffsetX		("Vertex OffsetX", float) = 0
+            // _VertexOffsetY		("Vertex OffsetY", float) = 0
+            // _MaskCoord			("Mask Coordinates", vector) = (0, 0, 32767, 32767)
+            // _ClipRect			("Clip Rect", vector) = (-32767, -32767, 32767, 32767)
+            // _MaskSoftnessX		("Mask SoftnessX", float) = 0
+            // _MaskSoftnessY		("Mask SoftnessY", float) = 0
+            // _StencilComp		("Stencil Comparison", Float) = 8
+            // _Stencil			("Stencil ID", Float) = 0
+            // _StencilOp			("Stencil Operation", Float) = 0
+            // _StencilWriteMask	("Stencil Write Mask", Float) = 255
+            // _StencilReadMask	("Stencil Read Mask", Float) = 255
+            // _ColorMask			("Color Mask", Float) = 15
+        }
+        __decorate([
+            feng3d.serialize,
+            feng3d.oav()
+        ], TextMeshProDistanceFieldUniforms.prototype, "_TintColor", void 0);
+        return TextMeshProDistanceFieldUniforms;
+    }());
+    tmpro.TextMeshProDistanceFieldUniforms = TextMeshProDistanceFieldUniforms;
+    feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"].cls = TextMeshProDistanceFieldUniforms;
+    feng3d.shaderConfig.shaders["TextMeshPro/Distance Field"].renderParams = {
+        enableBlend: true,
+        sfactor: feng3d.BlendFactor.SRC_ALPHA,
+        dfactor: feng3d.BlendFactor.ONE,
+        colorMask: feng3d.ColorMask.RGB,
+        cullFace: feng3d.CullFace.NONE,
+        depthMask: false,
+    };
+    feng3d.Material.setDefault("TextMeshPro-Material", { shaderName: "TextMeshPro/Distance Field" });
 })(tmpro || (tmpro = {}));
 var tmpro;
 (function (tmpro) {

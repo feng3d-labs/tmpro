@@ -118,6 +118,23 @@ declare namespace tmpro {
     }
 }
 declare namespace tmpro {
+    /**
+     * UnityShader "TextMeshPro/Distance Field"
+     */
+    class TextMeshProDistanceFieldUniforms {
+        __class__: "tmpro.ParticlesAdditiveUniforms";
+        _TintColor: feng3d.Color4;
+    }
+}
+declare namespace feng3d {
+    interface UniformsTypes {
+        "TextMeshPro/Distance Field": tmpro.TextMeshProDistanceFieldUniforms;
+    }
+    interface DefaultMaterial {
+        "TextMeshPro-Material": Material;
+    }
+}
+declare namespace tmpro {
     enum ColorMode {
         Single = 0,
         HorizontalGradient = 1,
