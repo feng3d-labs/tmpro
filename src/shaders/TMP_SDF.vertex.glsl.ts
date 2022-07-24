@@ -1,6 +1,4 @@
-namespace tmpro
-{
-    export var TMP_SDF_vertex = `
+export const TMP_SDF_vertex = `
 
 attribute vec2 a_position;
 attribute vec2 a_uv;
@@ -20,5 +18,4 @@ void main()
     v_uv = u_uvRect.xy + a_uv * u_uvRect.zw;
     v_position = position.xy;
 }
-    `;
-}
+`;

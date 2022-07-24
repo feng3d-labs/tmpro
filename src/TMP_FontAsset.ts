@@ -1,7 +1,4 @@
-namespace tmpro
+export class TMP_FontAsset
 {
-    export class TMP_FontAsset
-    {
 
-    }
 }

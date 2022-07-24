@@ -1,44 +1,25 @@
 {
     "compilerOptions": {
-        "target": "ES2015",
+        "target": "ES5",
+        "module": "CommonJS",
         "noImplicitAny": false,
         "sourceMap": true,
         "declarationMap": true,
         "declaration": true,
-        "composite": true,
-        // "strict": true,
-        "skipLibCheck": true,
         "experimentalDecorators": true,
         "lib": [
             "ES2015",
-            "dom"
+            "DOM",
         ],
-        "outFile": "out/tmpro.js"
-        // "outDir": "debug"
+        "outDir": "lib"
     },
-    "files": [
-        //
-        "../../feng3d/index.d.ts",
-        //
-        "src/enums/HorizontalAlignmentOptions.ts",
-        "src/enums/VerticalAlignmentOptions.ts",
-        "src/enums/FontStyles.ts",
-        "src/enums/TextAlignmentOptions.ts",
-        "src/enums/TextOverflowModes.ts",
-        "src/enums/TextureMappingOptions.ts",
-        "src/enums/VertexSortingOrder.ts",
-        //
-        "src/utils/VertexGradient.ts",
-        //
-        "src/shaders/TMP_SDF.vertex.glsl.ts",
-        "src/shaders/TMP_SDF.fragment.glsl.ts",
-        "src/shaders/TMP_SDF.shader.ts",
-        //
-        "src/TMP_ColorGradient.ts",
-        "src/TMP_Asset.ts",
-        "src/TMP_FontAsset.ts",
-        "src/TMP_SpriteAsset.ts",
-        "src/TMP_Text.ts",
-        "src/TextMeshProUGUI.ts",
-    ]
+    "include": [
+        "src/**/*.ts"
+    ],
+    "ts-node": {
+        "files": true,
+        "compilerOptions": {
+            "esModuleInterop": true
+        }
+    }
 }

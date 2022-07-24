@@ -198,12 +198,7 @@
                 "allowSingleLine": true
             }
         ],
-        "camelcase": [
-            1,
-            {
-                "properties": "never"
-            }
-        ],
+        "camelcase": 0,
         "comma-spacing": [
             1,
             {

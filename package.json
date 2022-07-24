@@ -6,7 +6,7 @@
   "module": "lib/index.es.js",
   "bundle": "dist/index.js",
   "types": "dist/index.d.ts",
-  "namespace": "unity",
+  "namespace": "tmpro",
   "author": "feng",
   "license": "MIT",
   "scripts": {
@@ -21,6 +21,7 @@
     "docs": "typedoc"
   },
   "keywords": [
+    "tmpro",
     "unity",
     "engine",
     "3d"

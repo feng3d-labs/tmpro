@@ -1,6 +1,4 @@
-namespace tmpro
-{
-    export var TMP_SDF_fragment = `
+export const TMP_SDF_fragment = `
 precision mediump float;
 
 uniform sampler2D s_texture;
@@ -19,4 +17,3 @@ void main()
     gl_FragColor = color * u_color;
 }
     `;
-}

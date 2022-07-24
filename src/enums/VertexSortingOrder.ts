@@ -1,8 +1,5 @@
-namespace tmpro
+export enum VertexSortingOrder
 {
-    export enum VertexSortingOrder
-    {
-        Normal,
-        Reverse
-    };
+    Normal,
+    Reverse
 }
