@@ -1,0 +1,8 @@
+{
+    "name": "@feng3d/tmpro",
+    "entryPoints": [
+        "src/index.ts"
+    ],
+    "sourcefile-url-prefix": "https://gitlab.com/feng3d/tmpro/tree/master/src/",
+    "out": "public"
+}
